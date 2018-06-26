@@ -64,7 +64,7 @@ class Label:
 
         # normalize each line to maxheight for that line
         self._rendered_items = [
-            [scale_to_height(img, 32) for img in line]
+            [scale_to_height(img, height) for img in line]
             for line in self._rendered_items
         ]
 
