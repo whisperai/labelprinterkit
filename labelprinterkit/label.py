@@ -43,7 +43,6 @@ class Label:
             for line in self.items]
 
         self.padding = kwargs.get("padding", 0)
-        print("Padding: {}".format(self.padding))
 
     @property
     def size(self) -> Tuple[int, int]:
@@ -89,7 +88,7 @@ class Label:
         #print("calcsize", xdim, height)
         img = img.resize((xdim, height))
 
-        img.save("output.png")
+        #img.save("output.png")
         return img
 
 # print("".join(f"{x:08b}".replace("0", " ") for x in bytes(i)))
