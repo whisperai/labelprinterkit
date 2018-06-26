@@ -204,7 +204,7 @@ class P700(BasePrinter):
     def get_label_width(self):
         self.get_status().tape_info.width
 
-    def print_label(self, label: Label) -> Status:
+    def print_label(self, label: Label) -> None:
         status = self.get_status()
         if not status.ready():
             raise IOError("Printer is not ready")
@@ -225,7 +225,8 @@ class P700(BasePrinter):
         with self.io.lock:
             self._raw_print(
                 status, batch_iter_bytes(img.tobytes(), ceil(img.size[0] / 8)))
-        return self.get_status()
+        
+        #return self.get_status()
 
     def _dummy_print(self, status: Status, document: Iterable[bytes]) -> None:
         for line in document:
