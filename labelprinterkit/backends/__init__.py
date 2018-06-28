@@ -20,6 +20,7 @@ class PyUSBBackend():
         dev = usb.core.find(custom_match=is_usb_printer)
         if dev is None:
             raise OSError('Device not found')
+        dev.set_configuration(dev.configurations()[0])
         return cls(dev)
 
     def write(self, data: bytes):
